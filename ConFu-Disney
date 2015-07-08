@@ -1,0 +1,13 @@
+#GIT 自動輸入帳號密碼
+	1.add ~/.gitconfig
+	  ex:
+		[credential]
+			helper = store
+
+	2.add ~/.git-credentials
+	  ex:
+		http://git:ganinia@10.253.10.118%3a5888
+
+#伺服器 bblb api 無法連線
+	測試方法：curl --header 'Host:api.lt.admin.bb-in.com' 'http://172.17.5.1:80/api/router.php'
+

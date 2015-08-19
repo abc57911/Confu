@@ -1,0 +1,43 @@
+Step 1：找一台己上線機器，將下列資料打包給新機器
+
+ 1. root ssh key
+  * 壓縮 root 的 tar -zcvf rootssh.tar.gz .ssh/
+  * rootssh.tar.gz 丟到新機器 /root 底下
+
+ 2. 產生 git.tar.gz和ipl_red.tar.gz 壓縮檔
+  * cd /home
+  * 執行 /confs/shell/install/tar.sh, 會產生壓縮檔
+  * git.tar.gz和ipl_red.tar.gz 丟到新機器 /home 底下
+
+
+Step 2：新機器
+
+ 1. root ssh key 
+  * cd ~/
+  * 將root ssh key 換成 rootssh.tar.gz(解壓縮)
+  * rm ~/.ssh/known_hosts
+
+ 2. git clone confs
+  * cd /
+  * git clone git@gitlab:confs.git
+
+ 3. 初始化安裝 
+  * cd /home; 
+  * /confs/shell/install/install.sh
+
+ 4. 執行update
+  * 切換使用者 su - ipl_red
+  *  ./update_bblb.sh
+
+ 5. crontab 設定
+ 6. new-nsk 環狀db 調整
+
+Step 3：機器IP增加
+
+ 1. 增加新機器列表
+  * ssh 192.168.5.169
+  * su - gitsync
+  * vim iplist => 加入新增機器 IP
+  * ssh git@172.17.2.111
+
+php main.php UserManager query 10000001 ##在nsk/tools/ 執行 檢測ACC連線

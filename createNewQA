@@ -1,0 +1,5 @@
+copy and setting /home/sk<Num>_red
+copy and setting nginx-->psk2c.bblb.conf
+copy and setting php.ini php-fpm.conf
+setting pitaya/fuel/app/config/staging/sk<Num>
+

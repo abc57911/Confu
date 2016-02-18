@@ -39,5 +39,21 @@ Step 3：機器IP增加
   * su - gitsync
   * vim iplist => 加入新增機器 IP
   * ssh git@172.17.2.111
-
 php main.php UserManager query 10000001 ##在nsk/tools/ 執行 檢測ACC連線
+
+#===========檢查測試功能是否有問題============
+架站完成可先請MIS 連接外網ip
+架站完成應重啟Service: nginx & php-fpm
+先到 /etc/nginx/site-enable/看設定檔,挑一個可用的domain(隨便選一個)
+新增Local端的Host
+然後連網址測試網站是否正常
+#############
+#備註：1.若出現Notice 或 Warning 錯誤訊息,去檢查php.ini的 reporting設定
+#ex: error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE
+#############
+
+
+範例：
+lt.ball-m.esball.net/lib/webver.php  檢查是否綁定到新機器
+lt.ball-m.esball.net/vender.php 測試下注 ##整合站連線使用
+==================================================================
